@@ -6,6 +6,16 @@
 function solve(boardString) {
 }
 
+function getMatrixBoard(str, size) {
+  return str.split('').reduce((acc, currentValue, index) => {
+      if (index % size === 0) {
+          acc.push([]);
+      }
+      const lastRowIndex = acc.length - 1;
+      acc[lastRowIndex].push(currentValue)
+      return acc;
+  }, []);
+}
 /**
  * Принимает игровое поле в том формате, в котором его вернули из функции solve.
  * Возвращает булевое значение — решено это игровое поле или нет.
