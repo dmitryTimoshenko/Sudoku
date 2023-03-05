@@ -9,6 +9,17 @@ function solve(boardString) {
 
 }
 
+
+function getMatrixBoard(str, size) {
+  return str.split('').reduce((acc, currentValue, index) => {
+      if (index % size === 0) {
+          acc.push([]);
+      }
+      const lastRowIndex = acc.length - 1;
+      acc[lastRowIndex].push(currentValue)
+      return acc;
+  }, []);
+  
 function findEmptyPlace(board) {
   for (let rowIndex = 0; rowIndex < board.length; rowIndex += 1) {
       const row = board[rowIndex];
@@ -38,7 +49,7 @@ function isSolved(board) {
  * Возвращает строку с игровым полем для последующего вывода в консоль.
  * Подумай, как симпатичнее сформировать эту строку.
  */
-function prettyBoard(board) {
+function prettyBoard(board) { 
 
 }
 
