@@ -6,6 +6,7 @@
 function solvePuzzle(boardString) {}
 
 function solve(board, size) {
+  
   const emptyCell = findEmptyPlace(board);
 
   if (emptyCell === null) {
