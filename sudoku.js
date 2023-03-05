@@ -6,10 +6,20 @@ const fs = require('fs')
  * Договорись со своей командой, в каком формате возвращать этот результат.
  */
 function solve(boardString) {
-console.log(boardString)
-return boardString
+
 }
 
+function findEmptyPlace(board) {
+  for (let rowIndex = 0; rowIndex < board.length; rowIndex += 1) {
+      const row = board[rowIndex];
+      for (let colIndex = 0; colIndex < row.length; colIndex += 1) {
+          if (board[rowIndex][colIndex] === '-') {
+              return [rowIndex, colIndex];
+          }
+      }
+  }
+  return null;
+}
 /**
  * Принимает игровое поле в том формате, в котором его вернули из функции solve.
  * Возвращает булевое значение — решено это игровое поле или нет.
@@ -17,7 +27,7 @@ return boardString
 function isSolved(board) {
 
 
-  
+
 }
    
 
@@ -44,27 +54,3 @@ module.exports = {
   prettyBoard,
 };
 
-
-let array = [[5, 3, '-'],
-             [6, '-', '-'],
-             ['-', 9, 8]];
-
-
-
-
-
-const foo = arr => {
-  let arrCopy = JSON.parse(JSON.stringify(array))
-  let hollowCellsIndex = [];
-  let usedNums = [];
-  for (let i = 0; i < arr.length; i += 1) {
-    for (let j = 0; j < arr[i].length; j += 1) {
-      if (arr[i][j] === '-') hollowCellsIndex.push([i, j]);
-      if (arr[i][j] !== '-') usedNums.push(arr[i][j]);
-    }
-  }
-  // console.log(array[1][0]);
-  return [hollowCellsIndex, usedNums];
-};
-
-console.log(foo(array));
